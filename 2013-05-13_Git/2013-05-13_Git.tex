@@ -66,7 +66,7 @@ Why branch?
 %\end{frame}
 
 
-\begin{frame}
+\begin{frame}[plain]
 
 But git changes all that
 
@@ -76,8 +76,6 @@ But git changes all that
 
 \begin{frame}
 
-  \begin{columns}
-    \begin{column}{.5\textwidth}
 How?
 
 
@@ -90,17 +88,11 @@ as n-dimensional membranes, mapping the spatial loci of successive
 commits onto the projected manifold of each cloned repository.
 \end{quote}
 \end{small}
+\begin{center}
 
-    \end{column}
-
-    \begin{column}{.5\textwidth}
       \includegraphics[scale=0.5]{I1546manifold.png}      
-    \end{column}
-
-  \end{columns}
-
-
-
+  
+\end{center}
 \end{frame}
 
 \begin{frame}[plain]
@@ -110,19 +102,20 @@ It just makes branching and merging easier.
 
 \begin{frame}[plain]
 
-\begin{huge}
+\begin{Large}
 \begin{itemize}
 
 \item Sequence of commits
 \item Starts by diverging from another branch
 \item {\it May be} merged back into other branch(es) zero or more times
 \item Can even cherry-pick individual commits from a branch
+\item Can usually avoid crazy mess when merging
 \end{itemize}
-\end{huge}
+\end{Large}
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[plain]
 Unsolicited advice:
 \begin{itemize}
 \item Commit often
@@ -133,28 +126,24 @@ Unsolicited advice:
 
 
 \begin{frame}[plain]
-When should I commit?
-\end{frame}
-
-\begin{frame}
+Commit often:
   \begin{itemize}
-  \item Don't be afraid to commit.
-  \item Commit dishes, not whole turkey dinners.
-  \item You can't unbake the cake.
+  \item You can always change it later
+  \item Commits are atomic
   \end{itemize}
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[plain]
 What should I use branches for?  
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[plain]
 (credit)
 \end{frame}
 
-\begin{frame}
+\begin{frame}[plain]
 
   Maintain a pointer to latest production code
 
@@ -168,65 +157,61 @@ What should I use branches for?
 
 \end{frame}
 
-\begin{frame}
+\begin{frame}[plain]
 
-  Maintain a Develop branch
+  Maintain a branch for latest developed features
 
   \begin{itemize}
-  \item Head has latest completed features
+  \item {\tt develop} branch
   \item Maybe not production-ready,
   \item but at least shareable
   \item Often branched from, merged back into
-  \item Never deleted
+  \item Lives forever
   \end{itemize}
 
 \end{frame}
 
-\begin{frame}
+\begin{frame}[plain]
 
-  Feature branch
+  Make a branch for a feature or small set of features
 
   \begin{itemize}
-  \item Used to build one feature or small set of features
+  \item ``feature'' branch, named after specific feature
   \item Short-lived
   \item Branch from ``develop''
   \item Merge back into ``develop''
-  \item Don't (usually) push to origin
+  \item Delete when finished with it
   \end{itemize}
 
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[plain]
 
-  Release branch
+  Make a little branch to finalize a release
 
   \begin{itemize}
+  \item {\tt release-}x.x branch
   \item Used to finish a release (bump version number, release date)
   \item Branch from master
   \item Merge into develop and master
+  \item Delete when finished with it
   \end{itemize}
 
 \end{frame}
 
-\begin{frame}
+\begin{frame}[plain]
 
-  Hot-fix branch
+  Make hot-fixes on their own branches
 
   \begin{itemize}
+  \item {\tt hotfix-}* branch
   \item Used to address issue found in ``production''
   \item Branch from master
   \item Merge into develop and master
+  \item Name after version number or issue number
+  \item Delete when finished with it
   \end{itemize}
-
-\end{frame}
-
-
-
-
-\begin{frame}
-\frametitle{Branching}
-git branch -a
 
 \end{frame}
 
