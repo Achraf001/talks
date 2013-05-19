@@ -1,5 +1,6 @@
 \documentclass{beamer}
-
+\usepackage{attrib}
+\usepackage{hyperref}
 \usetheme{Copenhagen}
 
 \title{Git Branching and Merging}
@@ -16,28 +17,32 @@
 \begin{frame}[plain]
 \begin{huge}
 
-Why branch?
+\tableofcontents
 
 \end{huge}
 \end{frame}
 
-\begin{frame}[plain]
+\section{Commits and branches explained}
 
+\begin{frame}[plain]
+\begin{huge}
+Why branch?
+\end{huge}
+\end{frame}
+
+\begin{frame}[plain]
 \begin{LARGE}
 \begin{itemize}
-
 \item Keep unrelated efforts separate from each other until ready
 \item Separate experimental or in-progress features from stable code
 \item Maintain diverging versions of code
 \item Quickly patch a production issue, without including half-done features
-
 \end{itemize}
 \end{LARGE}
 \end{frame}
 
 
 \begin{frame}[plain]
-
 \begin{center}
 \begin{Large}
  In older source control systems,
@@ -57,91 +62,81 @@ Why branch?
 \begin{frame}[plain]
   \begin{center}
     \includegraphics[scale=0.6]{now_i_cant_merge.jpg}
+
+    \begin{scriptsize}
+      http://cdn.memegenerator.net/instances/400x/34202554.jpg
+    \end{scriptsize}
   \end{center}
 \end{frame}
 
 
-%\begin{frame}[plain]
-%  \includegraphics[scale=0.4]{no_conflicts.jpg}
-%\end{frame}
-
-
 \begin{frame}[plain]
-
-But git changes all that
-
-\end{frame}
-
-\section{Branch / merge primer}
-
-\begin{frame}
-
-How?
-
-
-\begin{small}
-  
-\begin{quote}
-... it's simplest to think of the state of your repository as a point
-in a high-dimensional 'code-space', in which branches are represented
-as n-dimensional membranes, mapping the spatial loci of successive
-commits onto the projected manifold of each cloned repository.
-\end{quote}
-\end{small}
-\begin{center}
-
-      \includegraphics[scale=0.5]{I1546manifold.png}      
-  
-\end{center}
+  But in git, merging is much easier, and branches are much more common.
 \end{frame}
 
 \begin{frame}[plain]
-Actually, I don't really know.
-It just makes branching and merging easier.
-\end{frame}
 
-\begin{frame}[plain]
+
 
 \begin{Large}
-\begin{itemize}
+A git commit:
 
-\item Sequence of commits
-\item Starts by diverging from another branch
-\item {\it May be} merged back into other branch(es) zero or more times
-\item Can even cherry-pick individual commits from a branch
-\item Can usually avoid crazy mess when merging
+\begin{itemize}
+\item Represents the state of the repository at some time
+\item Has a pointer to its parent commit(s),
+\item and changes to bring repository into current state.
+\item Is atomic.
 \end{itemize}
 \end{Large}
 \end{frame}
 
-
-\begin{frame}[plain]
-Unsolicited advice:
+\begin{frame}
+\begin{Large}
+A git branch:
 \begin{itemize}
-\item Commit often
-\item Use branches more than you do
+\item Is a pointer to a commit.
+\item That is all.
 \end{itemize}
+\end{Large}
+\end{frame}
 
+\begin{frame}
+\begin{Large}
+A merge commit:
+\begin{itemize}
+\item Has two parents it points to,
+\item and the changes necessary to merge those two parents,
+\item (if there are conflicts).
+\end{itemize}
+\end{Large}
+\end{frame}
+
+\begin{frame}[plain]
+  \begin{Large}
+Git likes committing, branching, and merging:
+\begin{itemize}
+\item Don't be afraid to commit
+\item Don't be afraid of branches.
+\end{itemize}
+  \end{Large}
+\end{frame}
+
+\section{``A successful git branching model'', Vincent Driessen}
+
+\begin{frame}[plain]
+\tableofcontents[currentsection]
 \end{frame}
 
 
 \begin{frame}[plain]
-Commit often:
   \begin{itemize}
-  \item You can always change it later
-  \item Commits are atomic
+  \item Vincent Driessen writes some recommendations on using git branches
+  \item We'll summarize it here
+  \item Please see \url{http://nvie.com/posts/a-successful-git-branching-model}
   \end{itemize}
+  
 \end{frame}
 
-
-\begin{frame}[plain]
-What should I use branches for?  
-\end{frame}
-
-
-\begin{frame}[plain]
-(credit)
-\end{frame}
 
 \begin{frame}[plain]
 
@@ -212,6 +207,13 @@ What should I use branches for?
   \item Name after version number or issue number
   \item Delete when finished with it
   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[plain]
+  \begin{center}
+  (Demo)    
+  \end{center}
 
 \end{frame}
 
