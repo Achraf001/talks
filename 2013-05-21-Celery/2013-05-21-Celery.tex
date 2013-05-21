@@ -88,11 +88,26 @@
 
 \begin{frame}
   \frametitle{Submitting tasks}
+  \begin{columns}
+    \begin{column}{0.55\textwidth}
+
+      \includegraphics[scale=0.3]{runtasks.png}
+
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \begin{itemize}
+      \item Calling directly will run in process
+      \item Call {\tt delay(*args)} to put on queue
+      \item Call {\tt s(*args)} to make task object
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Creating workflows}
+  \begin{Large}
   \begin{itemize}
   \item Build a workflow programatically, out of:
     \begin{itemize}
@@ -103,6 +118,32 @@
     \end{itemize}
     \item Compose these elements to make complex workflows
   \end{itemize}
+    
+  \end{Large}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Immutable workflow}
+  \begin{center}
+  \includegraphics[scale=0.4]{wf1.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mutable workflow}
+  \begin{center}
+  \includegraphics[scale=0.35]{wf2.png}
+    
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{LARGE}
+    \begin{center}
+      Thanks!
+    \end{center}
+  \end{LARGE}
 \end{frame}
 
 \end{document}
